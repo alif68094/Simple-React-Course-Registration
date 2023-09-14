@@ -6,9 +6,16 @@ function App() {
   const [items, setItems] = useState([])
 
   const handleSelectedItems =(course) => {
-    const newItems = [...items, course];
-    setItems(newItems);
-    console.log(course)
+    const isExist = items.find((selectedCourse) => selectedCourse.id == course.id);
+    if(isExist){
+      return alert('Already Selected')
+    }
+    else{
+      const newItems = [...items, course];
+      setItems(newItems);
+    }
+    
+    // console.log(course)
 }
 
   return (
