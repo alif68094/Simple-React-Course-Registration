@@ -15,7 +15,8 @@ const Items = ({items, remaining, cost}) => {
                 }
             </div>
             <hr />
-            <h1 className="text-xl font-semibold">Total Credit: {cost}</h1>
+            <h1 className="text-xl font-semibold mb-5">Total Credit: {cost}</h1>
+            
             
         </div>
     );

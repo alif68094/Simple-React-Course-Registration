@@ -1,6 +1,8 @@
 import { useState } from "react"
 import Card from "./Components/Card/Card"
 import Items from "./Components/Selected-Items/Items"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
 
   const [items, setItems] = useState([])
@@ -11,7 +13,7 @@ function App() {
     const isExist = items.find((selectedCourse) => selectedCourse.id == course.id);
     let count = course.credit_hours;
     if(isExist){
-      return alert('Already Selected')
+      return toast.warning('Already Selected')
     }
     else{
       items.forEach((item) =>{
@@ -20,7 +22,7 @@ function App() {
       })
       const creditRemaining = 20 -count;
       if(count > 20){
-        return alert ('You can not add more than 20 Credits')
+        return toast ('You can not add more than 20 Credits')
       }
       setCost(count)
       setRemaining(creditRemaining)
@@ -38,6 +40,7 @@ function App() {
         <Card handleSelectedItems={handleSelectedItems}></Card>
         <Items items={items} remaining={remaining} cost={cost}></Items>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   )
 }
