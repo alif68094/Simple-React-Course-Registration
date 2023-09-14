@@ -19,7 +19,9 @@ function App() {
         
       })
       const creditRemaining = 20 -count;
-      
+      if(count > 20){
+        return alert ('You can not add more than 20 Credits')
+      }
       setCost(count)
       setRemaining(creditRemaining)
       const newItems = [...items, course];
