@@ -6,14 +6,14 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
 
   const [items, setItems] = useState([])
-  const [remaining, setRemaining] = useState(0)
+  const [remaining, setRemaining] = useState(20)
   const [cost, setCost] = useState(0)
 
   const handleSelectedItems =(course) => {
     const isExist = items.find((selectedCourse) => selectedCourse.id == course.id);
     let count = course.credit_hours;
     if(isExist){
-      return toast.warning('Already Selected')
+      return toast.success('Already Selected')
     }
     else{
       items.forEach((item) =>{
@@ -22,7 +22,7 @@ function App() {
       })
       const creditRemaining = 20 -count;
       if(count > 20){
-        return toast ('You can not add more than 20 Credits')
+        return toast.warning ('You can not add more than 20 Credits')
       }
       setCost(count)
       setRemaining(creditRemaining)
